@@ -8,6 +8,6 @@ await init();
 const server = http.createServer(app);
 const PORT = 8080;
 
-server.listen(PORT, () =>{
+server.listen(PORT, () => {
     console.log(`Server iniciado en http://localhost:${PORT}`)
 })

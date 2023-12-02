@@ -1,6 +1,25 @@
-Hola Lautaro perdon por las entregas incompletas de los anteriores archivos, estuve teniendo problemas y me estoy poniendo a resolverlo. Queria preguntar si les puedo actualizar el github y si se pueden corregir...
-Estoy arreglando este proyecto porque no me estarian andando ciertas partes, en breves lo subo arreglado y comentado.
 
-Desde ya muchas gracias y disculpa las molestias
+Probe la vista http://localhost:8080/api/products
 
-Ariza Maximiliano
+Probe la vista http://localhost:8080/api/carts/655fe27ced0b2323fda80a82     //Carrito creado en mi db
+
+Probe los endpoints
+
+
+Post: http://localhost:8080/api/products/
+{
+   "title": "Producto de ejemplo",
+  "description": "Esta es una descripción de ejemplo",
+  "code": "ABC128",
+  "price": 19.99,
+  "status": "Disponible",
+  "stock": 50,
+  "category": "Electrónicos",
+  "thumbnail": "url_de_la_miniatura.jpg",
+  "availability": true
+}
+
+Post: http://localhost:8080/api/carts/655fe27ced0b2323fda80a82/products/655d09dd4aeeb3690082fb82
+{
+  "quantity": 1
+}

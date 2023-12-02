@@ -9,4 +9,4 @@ export const init = async () => {
   } catch (error) {
     console.error('Error al conectar con la base de datos:', error.message);
   }
-} 
+}

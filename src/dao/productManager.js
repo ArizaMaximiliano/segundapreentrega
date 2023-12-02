@@ -1,8 +1,9 @@
-import Product from '../models/productModel.js'; 
-import { Exception } from '../utils.js';
+import Product from '../models/productModel.js';    //Modelo de Producto
+import { Exception } from '../utils.js';            //Clase de excepciones
 
 export default class ProductManager {
-  static async addProduct(product) {
+
+  static async addProduct(product) {                //Metodo para agregar un producto a la base de datos
     try {
       const newProduct = await Product.create(product);
       console.warn('Producto agregado correctamente.');
@@ -12,7 +13,7 @@ export default class ProductManager {
     }
   }
 
-  static async getProducts(query) {
+  static async getProducts(query) {                 //Metodo para obtener productos
     try {
       const products = await Product.find(query);
       return products;
@@ -21,7 +22,7 @@ export default class ProductManager {
     }
   }
 
-  static async getProductByID(id) {
+  static async getProductByID(id) {                 //Metodo para obtener un producto por su ID
     try {
       const product = await Product.findById(id);
       if (product) {
@@ -35,7 +36,7 @@ export default class ProductManager {
     }
   }
 
-  static async updateProduct(id, updatedProduct) {
+  static async updateProduct(id, updatedProduct) {  //Metodo para actualizar un producto por su ID
     try {
       const product = await Product.findByIdAndUpdate(id, updatedProduct, { new: true });
       if (product) {
@@ -49,7 +50,7 @@ export default class ProductManager {
     }
   }
 
-  static async deleteProduct(id) {
+  static async deleteProduct(id) {                 //Metodo para eliminar un producto por su ID
     try {
       const product = await Product.findByIdAndRemove(id);
       if (product) {
@@ -63,12 +64,11 @@ export default class ProductManager {
     }
   }
 
-  static async getProductsPaginated(criteria, options) {
+
+  static async getProductsPaginated(criteria, options) {  //Metodo para obtener productos paginados
     try {
-      console.log('Criteria:', criteria);
-      console.log('Options:', options);
       const result = await Product.paginate(criteria, options);
-      console.log('Result:', result);
+
       return result;
     } catch (error) {
       throw new Exception(`Error al obtener productos paginados - ${error.message}`, 500);
